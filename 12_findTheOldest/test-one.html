@@ -45,14 +45,23 @@
         },
         ]
         
-        const findTheOldest = function(people) {
-            for (each of people) {
-                each.age = (10);
-            }
-        };
-        
-        console.log(findTheOldest(people));
+      
+        const findTheOldest = function(individuals) {
+            let index = 0;
+            let highestAge = 0;
+            let oldestPerson = "";
 
+            for (each of individuals) {
+                if ((each.yearOfDeath - each.yearOfBirth) > highestAge) {
+                    highestAge = (each.yearOfDeath - each.yearOfBirth);
+                    oldestPerson = each.name;
+                    index = individuals.indexOf(each);
+                }
+            }
+            return people[index];
+        };
+
+        console.log(findTheOldest(people));
     </script>
 
     
