@@ -8,30 +8,11 @@
 </head>
 <body>
     <script>
-        /*
-        let people = [{name: "John", birth: 1950, death: 2025}, {name: "Katie", birth: 1989, death: 2055}, {name: "Lynn", birth: 1959, death: 2055}];
-
-        for (each of people) {
-            each.age = (each.death - each.birth);
-        }
-
-        let highestAge = 0;
-        let oldestPerson = "";
-        for (person of people) {
-            if(person.age > highestAge) {
-                highestAge = person.age;
-                oldestPerson = person.name;
-            }
-        }
-
-        console.log(people);
-        console.log(oldestPerson);
-        */
         const people = [
         {
         name: "Carly",
-        yearOfBirth: 1942,
-        yearOfDeath: 1970,
+        yearOfBirth: 2018,
+        //yearOfDeath: 1970,
         },
         {
         name: "Ray",
@@ -45,23 +26,29 @@
         },
         ]
         
-      
         const findTheOldest = function(individuals) {
             let index = 0;
             let highestAge = 0;
-            let oldestPerson = "";
+            
+            let date = new Date();
+            let year = date.getFullYear();
 
             for (each of individuals) {
+                if (each.yearOfDeath == undefined) {
+                    highestAge = (year - each.yearOfBirth);
+                    index = individuals.indexOf(each);
+                }
+
                 if ((each.yearOfDeath - each.yearOfBirth) > highestAge) {
                     highestAge = (each.yearOfDeath - each.yearOfBirth);
-                    oldestPerson = each.name;
                     index = individuals.indexOf(each);
                 }
             }
             return people[index];
         };
-
+        
         console.log(findTheOldest(people));
+        console.log(people);
     </script>
 
     

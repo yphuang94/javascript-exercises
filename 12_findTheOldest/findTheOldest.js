@@ -1,6 +1,6 @@
 const findTheOldest = function(individuals) {
    
-    /* returns undefined - this worked the whole time! We just needed to return the index, not the name.
+    /* returns undefined - this worked the whole time! We just needed to return the object, not the name.
     for (each of individuals) {
         each.age = (each.yearOfDeath - each.yearOfBirth);
     }
@@ -32,7 +32,15 @@ const findTheOldest = function(individuals) {
     let index = 0;
     let highestAge = 0;
 
+    let date = new Date();
+    let year = date.getFullYear();
+
     for (each of individuals) {
+        if (each.yearOfDeath == undefined) {
+            highestAge = (year - each.yearOfBirth);
+            index = individuals.indexOf(each);
+        }
+
         if ((each.yearOfDeath - each.yearOfBirth) > highestAge) {
             highestAge = (each.yearOfDeath - each.yearOfBirth);
             index = individuals.indexOf(each);
